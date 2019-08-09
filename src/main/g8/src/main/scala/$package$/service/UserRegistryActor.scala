@@ -28,7 +28,7 @@ class UserRegistryActor extends Actor with ActorLogging {
       sender() ! Users(users.toSeq)
     case CreateUser(user) =>
       users += user
-      sender() ! ActionPerformed(s"User "+user.name"+" created.")
+      sender() ! ActionPerformed("User "+user.name+" created.")
 
     case GetUser(name) =>
       sender() ! users.find(_.name == name)
